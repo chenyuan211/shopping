@@ -1,0 +1,207 @@
+/* pages/orderForm/orderForm.wxss */
+page {
+  background-color: rgba(247, 247, 247, 1);
+  overflow-x: hidden;
+}
+.all-orderForm {
+  margin-top: 1px;
+  margin-bottom: 10px;
+}
+.all-orderForm-list {
+  width: 100%;
+  padding: 8px 0; 
+  background-color: white;
+  margin-bottom: 10px;
+}
+.list-infor {
+  display: flex;
+  width: calc(100% - 20px);
+  font-size: 11px;
+  line-height: 20px;
+  padding: 0 10px;
+}
+.list-infor .state {
+  margin-left: auto;
+}
+.van-tag {
+  font-size: 10px !important;
+  margin-right: 6px;
+  padding: 2px 7px  !important;
+  letter-spacing: 3px;
+}
+.van-tag--primary {
+  background-color: rgba(2, 170, 176, 1) !important;
+}
+.van-tabs__line {
+  width: 12px !important;
+  height: 4px !important;
+  border-radius: 2px !important;
+  background: linear-gradient(45deg, #02AAB0 0%, #00CDAC 100%);
+  bottom: 4px !important;
+}
+.van-tab--active {
+  color: rgba(2, 170, 176, 1) !important;
+}
+.van-tabs__wrap {
+  padding-bottom: 6px;
+  font-size: 14px !important;
+}
+
+.list-content {
+  margin: 0 10px;
+  padding-top: 18px;
+  padding-bottom: 8px;
+  display: flex;
+  width: calc(100% - 20px);
+}
+.shopping-img {
+  width: 60px;
+  height: 60px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.shopping-img image {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+}
+.shopping-infor {
+  width: calc(100% - 68px);
+  margin-left: 8px;
+}
+.direct-purchasing {
+  width: calc(100% - 20px);
+  margin: 0;
+  padding-bottom: 8px;
+  margin: 0 10px;
+}
+.direct-purchasing-content {
+  width:100%;
+  display: flex;
+  display: -webkit-box;
+  flex-direction: column;
+}
+.direct-purchasing-content .shopping-img {
+  margin-right: 8px;
+}
+.shopping-title view:first-child {
+  font-size: 14px;
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  width: 100%;
+  overflow: hidden;
+}
+.shopping-title view:last-child {
+  font-size: 11px;
+  padding-top: 10px;
+}
+.shopping-price {
+  width: 100%;
+  display: flex;
+}
+.shopping-price-des {
+  margin-left: auto;
+  font-size: 11px;
+}
+.shopping-price-des text {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.list-btn {
+  height: 44px;
+  line-height: 44px;
+  width: calc(100% - 20px);
+  margin: 0 10px;
+  display: flex;
+}
+.list-btn-state {
+  font-size: 11px;
+  position: relative;
+  display: flex;
+  color: rgba(221, 82, 30, 1);
+}
+.list-btn-state>view {
+  display: flex;
+}
+.van-count-down {
+  color: rgba(221, 82, 30, 1) !important;
+  line-height: 44px !important;
+  font-size: 11px !important;
+}
+.share {
+  border: 1px solid rgba(2, 170, 176, 1) !important;
+  padding: 0 6px !important;
+  color:  rgba(2, 170, 176, 1) !important;
+  font-size: 12px !important;
+  height: 26px !important;
+  line-height: 25px !important;
+  top: 9px!important;
+}
+.list-van-btn {
+  margin-left: auto;
+}
+.van-button {
+  height: 26px !important;
+  line-height: 26px !important;
+  color: rgba(51, 51, 51, 0.6) !important;
+  font-size: 12px !important;
+  margin-left: 10px;
+  padding: 0 6px !important;
+  border-radius: 4px !important;
+}
+.van-button--primary {
+  border: 1px solid rgba(2, 170, 176, 1) !important;
+  color:  rgba(2, 170, 176, 1) !important;
+}
+.plainprimary {
+  background-color: white !important;
+  color:  rgba(2, 170, 176, 1) !important;
+  border-color:  rgba(2, 170, 176, 1) !important;
+}
+.primary {
+  background-color: rgba(2, 170, 176, 1) !important;
+}
+.shopping-price-des_num {
+  margin-left: 5px;
+}
+.list-btn-state_more {
+  position: relative;
+}
+.more-pup {
+  position: absolute;
+  width: 76px;
+  height: 28px;
+  background-color: white;
+  text-align: center;
+  line-height: 28px;
+  font-size: 11px;
+  left: 0px;
+  bottom: -20px;
+  border-radius: 2px;
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.07);
+}
+.more-pup::before, .more-pup::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border: solid transparent;
+  position: absolute;
+  left: 5px;
+  top: 0px;
+}
+.more-pup::before {
+  border-width: 6px;
+  border-bottom-color: rgba(0, 0, 0, 0.07);
+  top:-12px;
+}
+.more-pup::after {
+  border-width: 8px;
+  border-bottom-color: #fff;
+  top: -14px;
+  left: 3px;
+  z-index: 999;
+}

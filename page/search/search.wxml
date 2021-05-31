@@ -1,0 +1,47 @@
+<!--page/search/search.wxml-->
+<view class="search">
+  <view class="productList-head" style="height:{{statusBarHeight + 55}}px">
+    <view class="return" bindtap="returnBtn"  style="padding-top:{{statusBarHeight + 14}}px;"> 
+      <image src="/assets/images/back.png"></image>
+    </view>
+    <view class="productList-head-search"  style="top:{{statusBarHeight - 2}}px">
+      <view class="search-input" style="width: {{width}}">
+        <input value="{{value}}" confirm-type="search" bindconfirm="bindconfirm" focus="{{focus}}" bindinput="search" type="search" placeholder="{{placeholder}}"></input>
+        <image src="/assets/images/search.png"></image>
+      </view>
+    </view>
+  </view>
+  <!-- <view class="search-input">
+    <view class="search-inputs">
+      <input bindinput="search" type="text" placeholder="search"></input>
+      <image src="/assets/images/search.png"></image>
+    </view>
+    <text bindtap="canlBtn">取消</text>
+  </view> -->
+  <view class="search-content" style="top:{{statusBarHeight + 55}}px">
+    <view class="topSearch" wx:if="{{!value && homeProductListList.length === 0}}">
+      <view class="topSearch-title"  wx:if="{{hotSearchData.length > 0}}">热搜</view>
+      <view class="topSearch-list">
+        <view wx:for="{{hotSearchData}}" wx:key="index" bindtap="hotSearchBtn" data-name="{{item}}">{{item}}</view>
+      </view>
+      
+    </view>
+    <view class="search-result" wx:if="{{dataList.length>0 && !name}}">
+      <view  class="search-result-lists" >
+        <view class="search-result-list border_color2" wx:for="{{dataList}}" wx:for-item="list" wx:key="index" bindtap="productSearch" data-name="{{list.name}}">
+          <view wx:for="{{list.arr}}" wx:key="index">
+            <text wx:if="{{item != value}}">{{item}}</text>
+            <text class="font_color6" wx:else>{{value}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{names}}" class="search-hint">抱歉，没有搜索到相关商品，为您推荐以下商品</view>
+
+  </view>
+  
+</view>
+<view wx:if="{{homeProductListList.length!==0}}"> 
+  <v-productList homeProductListList="{{homeProductListList}}"></v-productList>
+</view>
+

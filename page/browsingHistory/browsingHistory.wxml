@@ -1,0 +1,35 @@
+<!--page/browsingHistory/browsingHistory.wxml-->
+<view class="browsingHistory">
+  <view class="clip" wx:if="{{readHistoryList.length === 0}}">
+    <v-no-contentbg>
+      <view slot='image'><image src="/assets/images/clip2.png"></image></view>
+      <view slot='title'>您还没有任何浏览记录哦～</view>
+    </v-no-contentbg>
+  </view>
+  <view class="browsingHistory-clearBtn" wx:if="{{readHistoryList.length > 0}}">
+    <view class="font_color6" bindtap="emptyBtn">清空</view>
+  </view>
+  <view class="browsingHistory-content" wx:if="{{readHistoryList.length > 0}}">
+    <view wx:for="{{readHistoryList}}" wx:key='index'>
+      <view class="browsingHistory-content-title font_color4 {{index === 0 ? 'content-active': ''}}">{{item.date}}</view>
+      <view class="browsingHistory-content-list border_color2" wx:for="{{item.list}}" wx:key='index' bindtap="shoppingBtn" data-id="{{item.productId}}">
+        <view class="browsingHistory-content-infor">
+          <view wx:if="item.pic" class="weui-cell__bd_icon"><image src="{{item.pic}}"></image></view>
+          <view class="shopping-des">
+            <view class="shopping-title font_color1">{{item.name}}</view>
+            <!-- <view class="shopping-size font_color1">规格：{{item.size}}</view> -->
+            <view class="shopping-operation">
+              <view class="shopping-price font_color3">
+                ¥{{item.price}}
+              </view>
+            </view>
+              
+          </view>
+        </view>
+      </view>
+    </view>
+     <!-- 加载状态 -->
+    <view class="loading" wx:if="{{isLoading}}"><van-loading type="spinner" /></view>
+    <view class="bottom_text font_color2" wx:if="{{stopApi}}">～我也是有底线的～</view>
+  </view>
+</view>

@@ -1,0 +1,76 @@
+<!--pages/groupDetails/groupDetails.wxml-->
+<view class="groupDetails">
+  <view class="groupDetails_shopping">
+    <view class="groupDetails_shopping_img">
+      <image src="{{list.productInfo.pic}}"></image>
+    </view>
+    <view class="groupDetails_shopping_title">
+      <view class="name font_color1">{{list.productInfo.productName}}</view>
+      <view class="font_color1 des">品质：<text wx:for="{{list.productInfo.attribute}}" wx:key="index"> {{item.value}} </text></view>
+      <view class="font_color1 des">{{list.productInfo.groupType}}人团</view>
+      <view class="font_color1 price">¥{{list.productInfo.groupPrice}}</view>
+    </view>
+  </view>
+  <view class="groupDetails_time font_color3">
+    <view wx:if="{{list.productInfo.type == 2}}">拼团中，还差{{list.productInfo.remainCustomer}}人，剩余时间</view>
+    <view wx:else>拼团中，还差{{list.productInfo.remainCustomer}}人，活动倒计时时间</view>
+    <van-count-down time="{{ list.productInfo.remainTime * 1000}}" />
+  </view>
+  <view class="groupDetails_bg"></view>
+  <view class="groupDetails_list" wx:if="{{list.productInfo.type == 2}}">
+    <view class="groupDetails_head" wx:for="{{list.list}}" wx:key="index">
+      <image src="{{item.avatarUrl}}"></image>
+    </view>
+    <view class="groupDetails_add" wx:for="{{list.productInfo.remainCustomer}}" wx:key="index">
+      <text>?</text>
+    </view>
+  </view>
+  <view class="groupDetails_btn">
+    <button bindtap="submitBtn" disabled="{{isDisabled}}">一键参团</button>
+  </view>
+   <!-- Choose specification -->
+   <van-popup
+    show="{{ openChooseShow }}"
+    position="bottom"
+    bind:close="onChooseClose"
+    custom-style="height: 60%"
+    closeable
+    round = "true"
+  >
+   <view class="chooseSpecification-content">
+      <view class="van-popup-title font_color1 border_color2">选择规格</view>
+      <view class="chooseSpecification_image">
+        <image src="{{prcieImage.pic}}"></image>
+        <text class="font_color3">¥{{prcieImage.price}}</text>
+      </view>
+      <view class="van-popup-listss">
+        <view class="van-popup-chooseSpecification-content" wx:for="{{listAttribute}}" wx:for-index="ids" wx:key="ids">
+          <view class="chooseSpecification_title font_color1">{{item.key}}</view>
+          <view class="van-popup-list-list">
+          <button wx:for="{{item.v}}" data-id="{{item.id}}" disabled="{{item.isNum}}" data-select-index="{{ids}}"  data-attr-index="{{index}}" wx:key="index" bindtap="chooseSpecificationBtn" 
+            class="chooseSpecification_content font_color1 {{item.isSelect ? 'chooseSpecification_active': ''}} {{item.isNum ? 'decoration': ''}}"
+          >
+            {{item.name}}
+            <text wx:if="{{item.isNum}}" class="decoration">缺货</text>
+          </button>
+          </view>
+        </view>
+      </view>
+      <view class="chooseSpecification_num">
+        <view class="font_color1">数量</view>
+        <view class="chooseSpecification_num_operation">
+          <view class="shopping-btn borderColor">
+            <view catchtap="minusBtn"  class="minus font_color2 operation">-</view>
+            <view class="shopping-num borderColor font_color2">{{shoppingNum}}</view>
+            <view  data-maximum="{{maximum}}"  catchtap="addBtn" class="add font_color2 operation">+</view>
+          </view>
+        </view>
+      </view>
+      <view  class="van-popup-btn" >
+        <button bindtap="specificationBtn" disabled="{{isNumDisabled}}">确 定</button>
+      </view>
+    </view>
+  </van-popup>
+  <van-dialog id="van-dialog" />
+  
+</view>

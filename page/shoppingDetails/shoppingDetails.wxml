@@ -1,0 +1,297 @@
+<!--page/shoppingDetails/shoppingDetails.wxml-->
+<view class="shoppingDetails">
+  <!-- banner -->
+  <view class="index-swiper">
+    <view class="page-section page-section-spacing swiper">
+      <swiper style="{{viewHeight}}"  circular
+      duration="{{duration}}" easing-function='easeInOutCubic' bindchange="swiperChange">
+        <block wx:for="{{background}}" wx:key="index">
+          <swiper-item bindtap='bannerBtn' data-items="{{item}}">
+            <view class="swiper-item" >
+              <image style="{{viewHeight}}" 
+                mode="aspectFill" 
+                src="{{item}}" 
+                data-index="{{index}}" 
+                data-src='{{item}}' 
+                data-list='{{background}}'  
+                bindtap="previewImage"
+                bindload="imageLoad"
+              >
+
+              </image>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view wx:if="{{background.length>0}}" class="index-swiper-tag">{{currentSwiper + 1}}/{{background.length}}</view>
+  </view>
+
+  <!-- count down -->
+  <view class="countDown" style="background:url(data:image/png;base64,{{bg}}); background-size: 100%" wx:if="{{ShoppingType.isGroup === 1}}">
+    <view class="countDown-shoopingNum">
+      <text class="countDown-shoopingNum-price">¥{{ShoppingType.price}}</text>
+      <text>/{{ShoppingType.unit}}</text>
+      <text>拼团价</text>
+    </view>
+    <view class="countDown-time">
+      <view></view>
+      <view>
+        <text class="font_color6">距离拼团结束</text>
+        <van-count-down use-slot time="{{ ShoppingType.remain }}" bind:change="onChange" format="HH:mm:ss">
+          <text wx:if="{{timeData.days}}" class="background_color4 time">{{ timeData.days }}</text><text  wx:if="{{timeData.days}}" class="time-slicer">天</text>
+          <text class="background_color4 time">{{ timeData.hours }}</text><text class="time-slicer">时</text>
+          <text class="background_color4 time">{{ timeData.minutes }}</text><text class="time-slicer">分</text>
+          <text wx:if="{{!timeData.days}}" class="background_color4 time">{{ timeData.seconds }}</text><text wx:if="{{!timeData.days}}" class="time-slicer">秒</text>
+        </van-count-down>
+      </view>
+    </view>
+  </view>
+
+  <!-- shopping introduce -->
+  <view class="shoppingIntroduce shoppingPublick-content">
+    <view class="shoppingIntroduce-money">
+      <view>
+        <text class="shoppingIntroduce-money_title">¥{{productDetailList.promotionPrice}}</text>
+        <text class="shoppingIntroduce-money_title1 font_color5" wx:if="{{productDetailList.price && productDetailList.price != null}}">¥{{productDetailList.price}}</text>
+      </view>
+      <!-- <view class="font_color5">月销 12227</view> -->
+    </view>
+
+    <view class="shoppingIntroduce-conten">
+      <view class="shoppingIntroduce-conten-title">{{productDetailList.name}}</view>
+      <view class="shoppingIntroduce-conten-described">
+        <view class="font_color5">{{productDetailList.description}}</view>
+      </view>
+    </view>
+
+    <view class="shoppingIntroduce-coupon">
+      <view class="shoppingIntroduce-coupon-money">
+        <view wx:for="{{couponList}}"  wx:if="{{index < 3}}" wx:key='index' class="font_color6 border_color3">满{{item.minPoint}}减{{item.amount}}</view>
+      </view>
+      <view wx:if="{{couponList.length>0}}" bindtap="couponBtn" class="shoppingIntroduce-coupon-btn font_color6">
+        领券
+        <van-icon name="arrow" />
+      </view>
+    </view>
+  </view>
+  
+  <!-- group booking -->
+  <view class="shopping-groupBooking shoppingPublick-content" wx:if="{{ShoppingType.isGroup === 2 || ShoppingType.isGroup === 1}}">
+    <view class="shopping-groupBooking-title">
+      <view style="margin-left: 0" class="font_color1">进行中的拼团</view>
+      <view bindtap="allgroupBooking" class="font_color2" wx:if="{{ShoppingType.isGroup === 2}}">全部拼团<van-icon name="arrow" /></view>
+    </view>
+    <view class="userInfor border_color2" wx:for="{{groupList}}" wx:key="index" wx:if="{{index<=2}}">
+      <view class="userInfor-name font_color1">
+        <text wx:if="{{ShoppingType.isGroup === 2}}">{{item.groupNum}}人团 </text>
+        <text wx:if="{{ShoppingType.isGroup === 2}}"> ￥{{item.price}}</text>
+        <text wx:if="{{ShoppingType.isGroup === 1}}">已拼{{item.groupNum}}件</text>
+      </view>
+      <view class="shopping-groupBooking-content">
+        <view class="shopping-groupBooking-content_infor">
+          <view wx:if="{{ShoppingType.isGroup === 2}}" class="font_color1">还差<text>{{item.remain}}人</text>成团</view>
+          <view><text>剩余</text>
+            <van-count-down wx:if="{{item.time >= 86400000}}" time="{{ item.time }}" format="DD 天 HH 时 mm 分 ss 秒" />
+            <van-count-down wx:else time="{{ item.time }}" format="HH 时 mm 分 ss 秒" />
+          </view>
+        </view>
+        <view wx:if="{{ShoppingType.isGroup === 2 || ShoppingType.isGroup === 1}}" data-type="4" data-id="{{item.groupId}}" bindtap="groupBookingBtn" class="shopping-groupBooking-btnc background_color4">
+          去拼团
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+  <!-- bottom bar -->
+  <view class="bottomBar" style="height:{{48+bottomLift}}px">
+    <view class="bottomBar-service" bindtap="phoneCall">
+      <image src="/assets/images/service.png"></image>
+      <view class="bottomBar-title">联系客服</view>
+    </view>
+    <view bindtap="shoppingCart" class="bottomBar-shoppingCart">
+      <image src="/assets/images/shopping_cart.png"></image>
+      <view class="bottomBar-title">购物车</view>
+    </view>
+    <view class="bottomBar-operation">
+      <button disabled="{{isDisabled}}" bindtap="submitBtn" data-type="1" class="bottomBar-shoppingCart-btn bottomBar-btn font_color6">加入购物车</button>
+      <button disabled="{{isDisabled}}" bindtap="submitBtn" data-type="2" class="bottomBar-submit-btn background_color4 bottomBar-btn">{{submitTile}}</button>
+    </view>
+  </view>
+  <!-- sponsor group booking 大团不要这个-->
+  <view wx:if="{{ShoppingType.isGroup === 2}}" class="sponsor-groupBooking" data-type="3" bindtap="groupBookingBtn">
+    <button class="font_color6">发起拼团</button>
+  </view>
+
+  <!-- group booking steps -->
+  <view class="groupBooking-steps" wx:if="{{ShoppingType.isGroup === 2 || ShoppingType.isGroup === 1}}">
+    <view class="groupBooking-steps-content">
+      <view class="groupBooking-steps-num">
+        <view class="font_color6">1</view>
+        <view class="font_color1">开团/参团</view>
+        <view class="groupBooking-steps-line"></view>
+      </view>
+      <view class="groupBooking-steps-num">
+        <view class="font_color6">2</view>
+        <view class="font_color1">邀请好友参团</view>
+        <view class="groupBooking-steps-line groupBooking-steps-lines"></view>
+      </view>
+      <view class="groupBooking-steps-num">
+        <view class="font_color6">3</view>
+        <view class="font_color1">人满开团</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- address 没有默认地址不要这个-->
+  <view class="defaultAddress">
+    <view class="font_color1 defaultAddress-title">发货</view>
+    <view class="defaultAddress-content">
+      <view class="font_color1">快递：{{getWay[0].way}}</view>
+      <view class="font_color2">配送至：{{address.province || ''}}{{address.city || ''}}{{address.area || ''}}{{address.street || ''}}{{address.detailAddress || ''}}</view>
+    </view>
+  </view>
+  <!-- guarantee -->
+  <view class="guarantee">
+    <view wx:for="{{productDetailList.serviceIds}}" wx:key='index'>
+      <image src="/assets/images/detail_icon_service.png"></image>
+      {{item}}
+    </view>
+  </view>
+
+  <!-- 富文本 -->
+  <view class="rich_text">
+    <view wx:if='{{productDetailList.detail}}' class="newsDt_wrap">
+      <rich-text space='nbsp' nodes='{{productDetailList.detail}}'></rich-text>
+    </view>
+  </view>
+  <van-toast id="van-toast" />
+
+  <!-- price explain -->
+  <view class="priceExplain" style="padding-bottom:{{bottomLift}}px">
+    <view class="priceExplain-title font_color1">价格说明</view>
+    <view>单独购买价：是您单独购买商品的价格</view>
+    <view>发起拼团价：是您拼单购买商品的价格</view>
+    <view>划线价：可能是商品的专柜价、吊牌价、零售价、指导价或该商品曾经展示过的销售价等，并非《价格法》、《禁止价格欺诈行为的规定》规定的“原价”，仅供您参考</view>
+    <view>特别提示：实际成交价可能因您使用优惠券等发生变化，最终以订单结算页的价格为准。</view>
+    <view></view>
+  </view>
+   
+  <!-- discount coupon Popup -->
+  <van-popup
+    show="{{ discountShow }}"
+    position="bottom"
+    bind:close="onClose"
+    custom-style="height: 68%"
+    closeable
+    round = "true"
+  >
+    <view class="van-popup-content">
+      <view class="van-popup-title font_color1 border_color2">优惠券</view>
+      <view class="content-public" style="height:{{height}}">
+        <view class="van-popup-list" wx:for="{{couponList}}" wx:key="index">
+          <view class="list-price">
+            <view class="list-price-icon">
+              <image src="/assets/images/Combined_Shape02.png"></image>
+            </view>
+            <view class="list-price-num list-price-public">¥{{item.amount}}</view>
+            <view class="list-price-impose list-price-public">满{{item.minPoint}}元使用</view>
+          </view>
+          <view class="list-price-content">
+            <view class="list-content">
+            <view class="list-content-title font_color4">{{item.name}}</view>
+            <view class="list-content-operation">
+              <view class="font_color5 note">{{item.note || ''}}</view>
+              <view class="operation_btn background_color3" data-id="{{item.couponId}}" bindtap="couponGeBtn">领取</view>
+            </view>
+            <view class="list-content-titme font_color5" wx:if="{{item.applyDay}}">领取后 {{item.applyDay}} 天有效</view>
+            <view class="list-content-titme font_color5" wx:else>有效期至 {{item.endTime}}</view>
+          </view>
+
+          </view>
+        </view>
+      </view>
+
+    </view>
+  </van-popup>
+
+  <!-- open sth Popup -->
+  <van-popup
+    show="{{ openSthShow }}"
+    position="bottom"
+    bind:close="onopensthClose"
+    custom-style="height: 68%"
+    closeable
+    round = "true"
+  >
+   <view class="van-popup-content">
+      <view class="van-popup-title font_color1 border_color2">选择开团</view>
+      <view class="van-popup-lists">
+        <view class="van-popup-list-content" wx:for="{{list}}" wx:key="index" bindtap="popupListBtn" data-index="{{index}}" data-id="{{item.groupId}}">
+          <view>
+            <view class="van-popup-price  {{isListShow === index ? 'borderColors': ''}}"><text>¥</text>{{item.price}}</view>
+            <view class="van-popup-num  {{isListShow === index ? 'backgroundColor': ''}}">{{item.num}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="van-popup-btn">
+        <button bindtap="popupBtn">确认开团</button>
+      </view>
+    </view>
+  </van-popup>
+
+  <!-- Choose specification -->
+  <van-popup
+    show="{{ openChooseShow }}"
+    position="bottom"
+    bind:close="onChooseClose"
+    custom-style="height: 68%"
+    closeable
+    round = "true"
+  >
+   <view class="chooseSpecification-content">
+      <view class="van-popup-title font_color1 border_color2">选择规格</view>
+      <view class="chooseSpecification_image">
+        <image data-src='{{prcieImage.pic}}' data-list='{{[prcieImage.pic]}}'  bindtap="previewImage" src="{{prcieImage.pic}}"></image>
+        <text class="font_color3">¥{{prcieImage.price}}</text>
+      </view>
+      <view class="content-publics">
+        <view class="van-popup-listss">
+        <view class="van-popup-chooseSpecification-content" wx:for="{{listAttribute}}" wx:for-index="ids" wx:key="ids">
+          <view class="chooseSpecification_title font_color1">{{item.key}}</view>
+          <view class="van-popup-list-list">
+          <button wx:for="{{item.v}}" data-id="{{item.id}}" disabled="{{item.isNum}}" data-select-index="{{ids}}"  data-attr-index="{{index}}" wx:key="index" bindtap="chooseSpecificationBtn" 
+            class="chooseSpecification_content font_color1 {{item.isSelect ? 'chooseSpecification_active': ''}} {{item.isNum ? 'decoration': ''}}"
+          >
+            {{item.name}}
+            <text wx:if="{{item.isNum}}" class="decoration">缺货</text>
+          </button>
+          </view>
+        </view>
+      </view>
+        
+      </view>
+      <view class="chooseSpecification_num">
+        <view class="font_color1">数量</view>
+        <view class="chooseSpecification_num_operation">
+          <view class="shopping-btn borderColor">
+            <view catchtap="minusBtn"  class="minus font_color2 operation">-</view>
+            <view class="shopping-num borderColor font_color2">{{shoppingNum}}</view>
+            <view  data-maximum="{{maximum}}"  catchtap="addBtn" class="add font_color2 operation">+</view>
+          </view>
+        </view>
+      </view>
+      <view class="van-popup-btn" >
+        <button disabled="{{isNumDisabled}}" bindtap="specificationBtn">确 定</button>
+      </view>
+    </view>
+  </van-popup>
+
+  <!-- publish_status"-->
+  <view  wx:if="{{productDetailList.publishStatus === 0}}" class="publish_status" style="bottom:{{bottomLift + 47}}px">
+    商品已下架啦~看看其他商品吧
+  </view>
+  
+
+</view>

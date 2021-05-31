@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "待收货",
+  "usingComponents" : {
+    "v-no-contentbg": "/components/noContentBg/noContentBg",
+    "v-invoice": "/components/invoice/invoice"
+  }
+}

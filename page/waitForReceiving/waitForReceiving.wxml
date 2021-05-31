@@ -1,0 +1,84 @@
+<!--pages/payment/payment.wxml-->
+<view class="payment">
+  <view class="all-orderForm">
+   
+    <view class="all-orderForm-list all-direct" wx:for="{{mallOrderListDate}}" wx:key="index" bindtap="orderDetails" data-id="{{item.id}}" data-index="{{index}}" wx:if="{{item.status === 1 || item.status === 2}}">
+        <view>
+          <view class="list-infor">
+            <van-tag custom-class="plainprimary" plain type="primary" wx:if="{{item.orderType === 0}}">直购</van-tag>
+            <van-tag custom-class="primary" type="primary" wx:if="{{item.orderType === 2}}">拼团</van-tag>
+            <view class="time font_color1">{{item.createTime}}</view>
+            <view class="state font_color6">{{status[item.status]}}</view>
+          </view>
+          <scroll-view scroll-x="true" wx:if="{{item.orderItemList.length> 1}}">
+            <view class="list-content direct-purchasing-content" scroll-x="true" >
+              <view class="shopping-img" wx:for="{{item.orderItemList}}" wx:key="index">
+                <image mode="aspectFit" src="{{item.productPic}}"></image>
+              </view>
+            </view>
+          </scroll-view>
+          <view class="list-content  border_color2" wx:if="{{item.orderItemList.length == 1}}">
+            <view class="shopping-img" wx:for="{{item.orderItemList}}" wx:key="index">
+              <image mode="aspectFit" src="{{item.productPic}}"></image>
+            </view>
+            <view class="shopping-infor">
+              <view class="shopping-title" wx:for="{{item.orderItemList}}" wx:key="index">
+                <view class="font_color1">{{item.productName}}</view>
+                <view class="font_color1">数量：{{item.productQuantity}}</view>
+              </view>
+              <view class="shopping-price">
+                <view></view>
+                <view class="font_color2 shopping-price-des"><text class="shopping-price-des_num">共{{item.count}}件</text>实付款：<text class="font_color1">¥{{item.payAmount}}</text></view>
+              </view>
+            </view>
+          </view>
+          <view class="shopping-infor direct-purchasing border_color2" wx:if="{{item.orderItemList.length> 1}}">
+            <view class="shopping-price">
+              <view></view>
+              <view class="font_color2 shopping-price-des"><text class="shopping-price-des_num">共{{item.count}}件</text>实付款：<text class="font_color1">¥{{item.payAmount}}</text></view>
+            </view>
+          </view>
+
+          <view class="list-btn">
+            <view class="list-btn-state">
+              <view wx:if="{{item.status === 6}}" class="font_color3">拼团倒计时：<van-count-down time="{{ item.timeRemain * 1000}}" /></view>
+              <view class="list-btn-state_more"  wx:if="{{(item.returnStatus == 0 || item.returnStatus == 3) && item.billType === 0 }}" class="font_color2" data-id="{{item.id}}" catchtap="moreBtn">
+                更多
+                <view wx:if="{{moreShow === item.id}}" catchtap="invoiceBtn" data-id="{{item.id}}"  class="more-pup font_color2">申请开票</view>
+              </view>
+              <view wx:if="{{(item.status === 4 || item.status === 3) && item.returnState === 3}}">
+                <text class="font_color3">退款成功</text>
+                <text class="font_color2" style="margin-left: 5px">订单退款：</text>
+                <text class="font_color3">¥{{item.returnAmount}}</text>
+              </view>
+            </view>
+            <view class="list-van-btn">
+              <van-button catchtap="cancelUserOrderBtn"  data-id="{{item.id}}" wx:if="{{item.status === 0}}" type="default">取消订单</van-button>
+              <van-button data-id="{{item.id}}" catchtap='carBtn'  wx:if="{{item.status === 2 || item.status === 3 || item.status === 1 || item.status === 4 || item.status === 5}}" type="default">加入购物车</van-button>
+              <van-button data-id="{{item.id}}" catchtap='logisticsBtn'  wx:if="{{item.status === 2}}" type="default">查看物流</van-button>
+              <van-button data-id="{{item.id}}"   wx:if="{{item.status === 2}}" plain type="primary" catchtap="sureConsignee">确认收货</van-button>
+              <van-button custom-class="plainprimary"  data-id="{{item.id}}" catchtap="paymentBtn"   wx:if="{{item.status === 0}}" plain type="primary">立即支付</van-button>
+              <button class="share" data-id='{{item.id}}' catchtap="share"  open-type="share" hover-class='none' wx:if="{{item.status === 6}}" plain type="primary">邀请好友参团</button>
+            </view>
+          </view>
+
+        </view>
+        
+      </view>
+         <!-- 加载状态 -->
+        <view wx:if="{{mallOrderListDate.length>0}}">
+          <view class="loading" wx:if="{{isLoading}}"><van-loading type="spinner" /></view>
+          <view class="bottom_text font_color2" wx:if="{{flag}}">～我也是有底线的～</view>
+        </view>
+        <view class="clip" wx:else>
+          <v-no-contentbg>
+            <view slot='image'><image src="/assets/images/clip2.png"></image></view>
+            <view slot='title'>您还没有任何记录哦～</view>
+          </v-no-contentbg>
+        </view>
+  </view>
+  <view>
+    <v-invoice invoiceShow='{{isInvoice}}' isinvoiceArrow="{{isinvoiceArrow}}" isDisabled='{{isDisabled}}' billInfoeList='{{billInfoeList}}' bindmyevent="myEventListener">
+    </v-invoice>
+  </view>
+</view>

@@ -1,0 +1,33 @@
+<!--page/applyRefund/applyRefund.wxml-->
+<view class="applyRefund">
+    <!-- refund shopping -->
+    <view class="refundShopping">
+    <view class="refundShopping_title font_color1 border_color2">退款商品</view>
+    <view class="refundShopping-content">
+      <view class="refundShopping-image">
+        <image src="/assets/images/2.jpg"></image>
+      </view>
+      <view class="refundShopping-infor">
+        <view class="refundShopping-infor-name font_color1">海南密宝红心火龙果6粒装限时特卖800g</view>
+        <view class="font_color1">数量：1</view>
+      </view>
+      <view class="refundShopping-price font_color1">¥29.90</view>
+    </view>
+  </view>
+  <!-- refund infor -->
+  <view class="refundInfor">
+    <view class="refundShopping_title font_color1 border_color2">选择服务类型</view>
+    <van-cell-group>
+      <view class="van-field" bindtap="refundInforBtn">
+        <image src="/assets/images/return_icon_refund01.png"></image>
+        <van-field
+          value="{{ satte }}"
+          readonly
+          label="退款"
+          icon="arrow"
+          bind:click-icon="stateBtn"
+        />
+      </view>
+    </van-cell-group>
+  </view>
+</view>

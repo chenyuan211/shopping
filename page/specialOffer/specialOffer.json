@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "v-productList": "/components/productList/productList"
+  },
+  "navigationBarTitleText": "今日特价"
+}

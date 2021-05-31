@@ -1,0 +1,736 @@
+/* page/shoppingDetails/shoppingDetails.wxss */
+page {
+  background-color: #f7f7f7;
+}
+.shoppingDetails {
+  padding-bottom: 55px;
+}
+.index-swiper{
+  width: 750rpx;
+  position: relative;
+}
+.index-swiper swiper{
+  width: 100%;
+}
+.index-swiper  swiper image{
+  width: 100%;
+}
+swiper {
+  width: 100% !important;
+}
+swiper image {
+  width: 100%;
+  height: 100%;
+}
+.index-swiper-tag {
+  width: 34px;
+  height: 20px;
+  background: #000;
+  opacity: 0.6;
+  border-radius: 50px 0px 0px 50px;
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  color: white;
+  line-height: 20px;
+  text-align: center;
+  font-size: 12px;
+}
+.countDown {
+  width: 100%;
+  height: 36px;
+  display: flex;
+  line-height: 36px;
+}
+.countDown-shoopingNum {
+  width: 50%;
+  color: white;
+  font-size: 11px;
+  padding: 0 10px;
+}
+.countDown-shoopingNum-price {
+  font-size: 20px;
+}
+.countDown-shoopingNum text:last-child {
+  font-size: 11px;
+  display: inline-block;
+  width: 40px;
+  height: 14px;
+  line-height: 14px;
+  text-align: center;
+  background-color: rgba(230, 255, 251, 1);
+  color: rgba(2, 170, 176, 1);
+  border-radius: 2px;
+  margin-left: 8px;
+}
+.countDown-time {
+  width: 70%;
+  display: flex;
+}
+
+.countDown-time>view:nth-child(2)>text {
+  font-size: 10px;
+  padding-right: 5px;
+  line-height: 36px;
+}
+.countDown-time>view:last-child {
+  display: flex;
+  margin-left: auto;
+  padding-right: 10px;
+}
+.countDown-time-content {
+  display: flex;
+}
+.countDown-time-content text {
+  font-size: 14px;
+  display: inline-block;
+  padding: 0 3px;
+  color: rgba(2, 170, 176, 1);
+}
+.time-slicer {
+  position: relative;
+  top: 8px;
+  color: rgba(2, 170, 176, 1);
+  padding: 0 4px;
+  font-size: 11px;
+}
+.countDown-time .time {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  position: relative;
+  top: 8px;
+  font-size: 10px;
+  color: white;
+  text-align: center;
+  line-height: 20px;
+  display: inline-block;
+}
+
+.shoppingPublick-content {
+  background-color: white;
+  padding-bottom: 10px;
+}
+.shoppingIntroduce-coupon {
+  display: flex;
+  padding-left: 10px;
+  padding-top: 8px;
+}
+.shoppingIntroduce-coupon-money {
+  display: flex;
+  font-size: 10px;
+}
+.shoppingIntroduce-coupon-money view {
+  padding: 0 5px;
+  border-radius: 2px;
+  margin-right: 4px;
+  line-height: 17px;
+  height: 17px !important;
+}
+.shoppingIntroduce-coupon-btn {
+  margin-left: auto;
+  padding-top: 4px;
+  font-size: 12px;
+  width: 58px;
+  height: 20px;
+  background: linear-gradient(45deg, #02AAB0 0%, #00CDAC 100%);
+  border-radius: 50px 0px 0px 50px;
+  color: white;
+  text-align: center;
+}
+.rich_text {
+  padding: 0 10px;
+  background-color: white;
+}
+.newsDt_wrap {
+  overflow-x: hidden;
+  width: 100% !important;
+  font-size: 14px;
+  line-height: 25px;
+}
+.newsDt_wrap image {
+  width: 100% !important;
+  border-radius:4px !important;
+  margin-top: 10px;
+}
+
+.shoppingIntroduce-money {
+  display: flex;
+  padding: 0 10px;
+  padding-top: 5px;
+}
+
+.shoppingIntroduce-money text:first-child {
+  color: rgba(255, 117, 93, 1);
+  font-size: 20px;
+  font-weight: bold;
+}
+.shoppingIntroduce-money_title1 {
+  font-size: 12px;
+  position: relative;
+  top: -2px;
+  left: 10px;
+  text-decoration: line-through;
+}
+.note {
+  width: 68%;
+  flex-shrink:0;
+}
+.shoppingIntroduce-conten {
+  padding: 0 10px;
+  padding-top: 8px;
+  padding-bottom: 5px;
+}
+.shoppingIntroduce-conten-title {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+.shoppingIntroduce-conten-described {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 20px;
+  display: flex;
+}
+
+.shopping-groupBooking {
+  padding: 0 10px;
+  margin-top: 8px;
+  padding-bottom: 10px;
+}
+.shopping-groupBooking-title {
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  height: 36px;
+  line-height: 36px;
+}
+.shopping-groupBooking-title view:last-child {
+  margin-left: auto;
+  font-size: 12px;
+}
+.userInfor {
+  display: flex;
+  padding: 4px 0;
+}
+.userInfor-head {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+}
+.userInfor-head image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.userInfor-name {
+  font-size: 14px;
+  position: relative;
+  top: 8px;
+}
+.shopping-groupBooking-content {
+  margin-left: auto;
+  display: flex;
+  padding-top: 4px;
+}
+.shopping-groupBooking-content_infor text {
+  color: rgba(255, 117, 93, 1);
+}
+.shopping-groupBooking-content_infor view:first-child {
+  font-size: 12px;
+}
+.shopping-groupBooking-content_infor view:last-child {
+  font-size: 10px;
+  display: flex;
+  color: rgba(221, 82, 30, 1);
+}
+.shopping-groupBooking-content_infor view:last-child  text {
+  position: relative;
+  top: 2px;
+}
+.shopping-groupBooking-btnc {
+  width: 59px;
+  height: 28px;
+  line-height: 28px;
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  border-radius: 2px;
+  margin-left: 12px;
+}
+
+.bottomBar {
+  width: 100%;
+  height: 48px;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  z-index: 99;
+}
+.bottomBar image {
+  width: 22px;
+  height: 22px;
+}
+.bottomBar-service, .bottomBar-shoppingCart {
+  margin-left: 7px;
+  text-align: center;
+  vertical-align: middle;
+  padding-top: 4px;
+  position: relative;
+}
+.bottomBar-service {
+  margin-left: 12px;
+}
+.bottomBar-service view {
+  font-size: 10px;
+  color: rgba(51, 51, 51, 0.3);
+}
+.bottomBar-operation {
+  margin-left: auto;
+  display: flex;
+  margin-right: 10px;
+}
+.bottomBar-operation button {
+  border: 0 !important;
+}
+.bottomBar-shoppingCart  .bottomBar-title {
+  font-size: 10px;
+  color: rgba(51, 51, 51, 0.3);
+  position: relative;
+}
+.shoppingCart-carNum {
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  right: -1px;
+  top: 3px;
+  border-radius: 50%;
+  background-color: #02AAB0;
+  color: white;
+  text-align: center;
+  line-height: 13px;
+  font-size: 10px;
+}
+.shoppingCart-carNums {
+  width: 18px;
+  border-radius: 20px;
+  right: -8px;
+  text-align: center;
+}
+.shoppingCart-carNumss {
+  width: 22px;
+  border-radius: 20px;
+  right: -8px;
+  text-align: center;
+}
+.bottomBar-btn {
+  width: 120px;
+  height: 36px;
+  font-size: 14px;
+  line-height: 36px;
+  text-align: center;
+  position: relative;
+  top: 7px;
+}
+.bottomBar-shoppingCart-btn {
+  background-color: rgba(230, 255, 251, 1);
+  height: 36px;
+  border-radius: 2px 0px 0px 2px;
+
+
+}
+.bottomBar-submit-btn {
+  color: white;
+  border-radius: 0px 2px 2px 0px;
+}
+.van-icon {
+  position: relative;
+  top: 2px;
+}
+
+.groupBooking-steps {
+  background: white;
+}
+.groupBooking-steps-content {
+  padding: 0 40px;
+  margin: auto;
+  display: flex;
+  padding-bottom: 10px;
+}
+.groupBooking-steps-num {
+  text-align: center;
+  margin: auto;
+  font-size: 12px;
+  display: inline-block;
+  position: relative;
+}
+.groupBooking-steps-num view:first-child {
+  width: 20px;
+  height: 20px;
+  background: #FFFFFF;
+  border: 1px solid #02AAB0;
+  font-size: 12px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 20px;
+  margin-bottom: 4px;
+  position: relative;
+  left: 50%;
+  margin-left: -10px;
+}
+.groupBooking-steps-line {
+  width: 94px;
+  border-top: 1px dashed rgba(163, 163, 163, 1);
+  position: absolute;
+  top: 10px;
+  left: 38px;
+}
+.groupBooking-steps-lines {
+  left: 48px;
+}
+.priceExplain {
+  background-color: white;
+  padding: 0 10px;
+  padding-bottom: 18px;
+}
+.priceExplain view {
+  color: rgba(51, 51, 51, 0.6);
+  font-size: 12px;
+  line-height: 18px;
+}
+.priceExplain-title {
+  font-size: 14px !important;
+  padding: 12px 0;
+  color: rgba(51, 51, 51, 1) !important;
+  font-weight: 500;
+}
+.defaultAddress {
+  background-color: white;
+  padding: 6px 10px;
+  display: flex;
+  margin: 8px 0;
+  font-size: 12px;
+}
+.defaultAddress-title {
+  font-size: 14px;
+  width: 40px;
+  flex-shrink: 0;
+}
+.defaultAddress-content view:first-child{
+  padding-bottom: 4px;
+
+}
+.sponsor-groupBooking {
+  background-color: white;
+  padding: 0 10px;
+  padding-bottom: 14px;
+}
+.sponsor-groupBooking button {
+  padding: 0 !important;
+  width: 100%;
+  height: 28px;
+  border-right: 2px;
+  line-height: 28px;
+  background-color: white;
+  font-size: 14px;
+  box-sizing: border-box;
+  border: 1px solid rgba(2, 170, 176, 1) !important;
+  cursor: pointer;
+}
+
+.shoppingDetailsHeight {
+  overflow: hidden !important;
+  height: 90vh !important;
+}
+
+/* 优惠券弹框 */
+.van-popup-content {
+  padding: 0 10px;
+  overflow: hidden !important;
+  height: 100%;
+}
+.van-popup-title {
+  height: 44px;
+  background: #FFFFFF;
+  border-radius: 4px 4px 0px 0px;
+  line-height: 44px;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+.van-popup-list {
+  height: 90px;
+  background: rgba(230, 255, 251, 0.6);
+  border-radius: 2px;
+  margin-top: 10px;
+  position: relative;
+  display: flex;
+}
+.list-price {
+  position: relative;
+  width: 90px;
+}
+.list-price-icon {
+  position: absolute;
+  width: 90px;
+  height: 96px;
+  left: 0;
+  top: 0px;
+}
+.list-price-icon image {
+  width: 100%;
+  height: 100%;
+}
+.list-price-public {
+  width: 90px;
+  position: absolute;
+  left: 0;
+  text-align: center;
+  top: 28px;
+  z-index: 99;
+  color: white;
+}
+.list-price-num {
+  font-size: 20px;
+  font-weight: bold;
+}
+.list-price-impose {
+  font-size: 10px;
+  top: 60px;
+}
+.list-price-content  {
+  position: absolute;
+  left: 105px;
+  top: 15px;
+  width: calc(100% - 105px);
+}
+.list-content-title {
+  font-size: 14px;
+  font-weight: 600;
+}
+.content-public {
+  overflow-y: auto;
+  padding-bottom: 30px;
+}
+.content-publics {
+  height: 170px;
+  overflow-y: auto;
+}
+.list-content-operation {
+  display: flex;
+  font-size: 10px;
+  padding-top: 2px;
+}
+.operation_btn {
+  margin-left: auto;
+  width: 60px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  color: white;
+  font-size: 13px;
+  border-radius: 4px;
+  margin-right: 15px;
+  letter-spacing: 4px;
+}
+.list-content-titme {
+  font-size: 10px;
+}
+
+/* 选择开团 */
+.van-popup-lists {
+  display: flex;
+  background-color: white;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  height: 200px;
+  overflow-y: auto;
+  flex-wrap: wrap;
+
+}
+.van-popup-list-content {
+  width: 50%;
+  flex-shrink: 0;
+}
+.van-popup-price {
+  width: 120px;
+  height: 49px;
+  font-size: 18px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 49px;
+  border-radius: 4px 4px 0 0;
+  position: relative;
+  left: 50%;
+  margin-left: -60px;
+  top: 12px;
+  border: 1px solid rgba(204, 204, 204, 1);
+  color: rgba(51, 51, 51, 1);
+}
+.van-popup-price text {
+  font-size: 12px;
+}
+.van-popup-num {
+  width: 122px;
+  text-align: center;
+  height: 26px;
+  line-height: 26px;
+  border-radius: 0 0 4px 4px;
+  font-size: 14px;
+  position: relative;
+  left: 50%;
+  margin-left: -60px;
+  background-color: rgba(232, 232, 232, 1);
+  color: rgba(51, 51, 51, 1);
+}
+.borderColors {
+  border: 1px solid rgba(2, 170, 176, 1) !important;
+  color: rgba(2, 170, 176, 1);
+
+}
+.backgroundColor {
+  color: white;
+  background-color: rgba(2, 170, 176, 1);
+}
+.van-popup-btn {
+  width: 90%;
+  margin: auto;
+  padding-bottom: 20px;
+}
+.van-popup-btn button {
+  width: 100;
+  height: 44px;
+  background: #02AAB0;
+  border-radius: 4px;
+  margin: auto;
+  color: white;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 44PX;
+  padding: 0 !important;
+  border: 0 !important;
+ }
+.guarantee {
+  padding: 8px 10px;
+  color: rgba(51, 51, 51, 0.45);
+  font-size: 11px;
+  display: flex;
+}
+.guarantee image {
+  width: 11px;
+  height: 11px;
+  position: relative;
+  right: 1px;
+  top: 1px;
+}
+.guarantee view {
+  margin-right: 22px;
+}
+.chooseSpecification_title {
+  font-size: 14px;
+  font-weight: 600;
+  padding-top: 8px;
+}
+.chooseSpecification_content {
+  padding: 0px 15px !important;
+  background: #F5F5F5;
+  border-radius: 4px !important;
+  font-size: 14px;
+  margin: 0 !important;
+  margin-right: 20px !important;
+  border: 0 !important;
+  margin-bottom: 10px !important;
+}
+.chooseSpecification_active {
+  background: rgba(230, 255, 251, 1);
+  border: 1px solid rgba(2, 170, 176, 1) !important;
+  color: rgba(2, 170, 176, 1);
+}
+.chooseSpecification-content {
+  width: 100%;
+  overflow: hidden;
+}
+.van-popup-list-list {
+  display: flex;
+  padding: 15px 10px 8px 10px;
+  flex-wrap: wrap;
+}
+.van-popup-list-list button {
+  border: 0 !important;
+}
+.van-popup-listss {
+  background-color: white;
+  padding: 0 10px;
+  padding-bottom: 20px;
+}
+.chooseSpecification_image {
+  padding: 8px 10px;
+}
+.chooseSpecification_image image {
+  width: 80px;
+  height: 80px;
+  border-radius: 4px;
+}
+.chooseSpecification_image text {
+  font-size: 14px;
+  padding-left: 8px;
+  display: inline-block;
+}
+.chooseSpecification_num {
+  padding: 10px;
+  display: flex;
+  padding-bottom: 50px;
+}
+.chooseSpecification_num view:first-child {
+  font-size: 14px;
+  font-weight: 600;
+}
+.chooseSpecification_num_operation {
+  margin-left: auto;
+}
+.shopping-btn {
+  width: 80px;
+  border-radius: 2px;
+  box-sizing: border-box;
+  height: 21px;
+  margin-left: auto;
+  border: 1px solid;
+  display: flex;
+  line-height: 20px;
+  margin-right: 5px;
+}
+.shopping-num {
+  width: 40px;
+  height: 20px;
+  text-align: center;
+  border-right: 1px solid;
+  border-left: 1px solid;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+.operation {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  line-height: 17px;
+}
+.decoration {
+  /* text-decoration: line-through; */
+  color: rgba(0, 0, 0, 0.3);
+  border: 0 !important;
+}
+.publish_status {
+  width: 100%;
+  height: 28px;
+  background-color: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  font-size: 12px;
+  line-height: 28px;
+  position: fixed;
+  z-index: 9;
+  bottom: 47px;
+  left: 0;
+}

@@ -1,0 +1,4 @@
+<!--page/specialOffer/specialOffer.wxml-->
+<view class="specialOffer" wx:if="{{homeProductListList.length!==0}}"> 
+  <v-productList homeProductListList="{{homeProductListList}}" top='{{top}}'></v-productList>
+</view>

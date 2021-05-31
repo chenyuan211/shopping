@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "v-productList": "/components/productList/productList"
+  },
+  "navigationStyle": "custom",
+  "navigationBarTitleText": ""
+}
