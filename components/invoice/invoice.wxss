@@ -1,0 +1,70 @@
+/* components/invoice/invoice.wxss */
+.invoice_title {
+  height: 44px;
+  line-height: 44px;
+  margin: 0 10px;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 600;
+}
+.invoice_type_list {
+  width: 95px;
+  padding: 8px 0;
+  background: #F5F5F5;
+  border-radius: 4px;
+  font-size: 14px;
+  text-align: center;
+}
+.invoice_type_l {
+  display: flex;
+  margin: 0 10px;
+}
+.invoice_type_ll>view {
+  display: flex;
+}
+.invoice_type_list {
+  margin-right: 12px;
+}
+.invoice_type .invoice_title {
+  text-align: left;
+  font-size: 14px;
+  padding-top: 5px;
+}
+
+.invoice_rise .invoice_title {
+  text-align: left;
+  font-size: 14px;
+  padding-top: 5px;
+}
+.invoiceActive {
+  background-color: rgba(230, 255, 251, 1) !important;
+  border-color: rgba(2, 170, 176, 1) !important;
+  color: rgba(2, 170, 176, 1) !important;
+}
+.invoice .van-cell-group::after {
+  border: 0 !important;
+}
+
+.invoiceBtn {
+  width: 85%;
+  margin: auto;
+  height: 44px;
+  background-color: rgba(2, 170, 176, 1);
+  padding: 0 !important;
+  color: white;
+  margin-top: 40px;
+  font-size: 14px;
+  margin-bottom: 28px;
+  line-height: 44px !important;
+}
+.isinvoice_more {
+  text-align: center;
+  color: rgba(2, 170, 176, 1);
+  font-size: 11px;
+  padding: 8px 0;
+}
+.invoice .van-icon {
+  position: relative;
+  top: 2px;
+  left: 2px;
+}

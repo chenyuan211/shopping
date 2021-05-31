@@ -1,0 +1,28 @@
+<!--pages/productList/productList.wxml-->
+<view class="productList" style="top:{{top ? top: statusBarHeight + 65}}px">
+  <view class="productList-list">
+    <view class="productList-list-content" wx:for="{{homeProductListList}}" wx:key="index" data-pid="{{item.pId || item.productId}}" bindtap="shoppimgDetail">
+      <view class="shopps-content_img">
+        <image mode="aspectFit" src="{{item.pic || item.skuImg}}"></image>
+      </view>
+      <view class="shopps-content_des">
+            <view class="title font_color1">{{item.name || item.skuName}}</view>
+            <view wx:if="{{item.description}}" class="hint font_color5">{{item.description || ''}}</view>
+            <view wx:if="{{item.price && item.savePrice}}" class="tag">已省{{item.savePrice}}元</view>
+            <view class="price">
+              <view class="price_num">
+                <text class="font_color6">
+                  <text class="price-symbol">￥</text>{{item.promotionPrice || ''}}</text>
+                <text></text>
+              </view>
+              <view class="price_nums">
+                <text wx:if="{{item.price}}" class="font_color6">￥{{item.price || ''}}</text>
+              </view>
+              <view class="price_btn" data-pid="{{item.pId || tem.productId}}"  data-openChooseShow="1" catchtap="shoppimgDetail"> <image src="/assets/images/home_list_icon_purchased.png"></image></view>
+            </view>
+          </view>
+
+    </view>
+
+  </view>
+</view>

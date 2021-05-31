@@ -1,0 +1,67 @@
+<!--components/payTogether/payTogether.wxml-->
+<view class="payTogether">
+  <van-popup
+    show="{{ payShow }}"
+    closeable
+    position="bottom"
+    custom-style="height: 75%"
+    bind:close="onClose"
+  >
+  <view class="payTogether_title font_color1 border_color2">以下订单需一起付款</view>
+  <view class="payTogether_scroll" style="height:{{height}}">
+    <view class="payTogether_content">
+    <!-- <view class="payTogether_hit font_color6">由于以下订单共享优惠，需要一起付款</view> -->
+    <view class="payTogether_list">
+      <view class="payTogether_list-content" wx:for="{{mallOrderAllOrder.orderDetailList}}" wx:key="index">
+        <van-checkbox-group  class='list-infor-checkbox-group'  bindchange="checkboxChange" value="{{ result }}"> 
+          <label  class="weui-cell weui-check__label weui-check__label_titles borderColor">
+            <view class="weui-cell__hd">
+              <van-checkbox name ="{{item.id}}"/>
+            </view>
+            <view class="weui-cell_body">
+              <view class="payTogether_list-multiple">
+                <scroll-view scroll-x="true" wx:if="{{item.orderItemList.length> 1}}">
+                  <view class="list-content direct-purchasing-content" scroll-x="true" >
+                    <view class="shopping-img" wx:for="{{item.orderItemList}}" wx:key="index">
+                      <image mode="aspectFit" src="{{item.productPic}}"></image>
+                    </view>
+                  </view>
+                </scroll-view>
+                <view class="shopping-price" wx:if="{{item.orderItemList.length> 1}}">
+                  <view class="font_color2 shopping-price-des"><text class="shopping-price-des_num">共{{item.count}}件<text>应付：</text></text><text class="font_color1 shopping-price-des_price">¥{{item.payAmount}}</text></view>
+                </view>
+              </view>
+              <view class="payTogether_list-single" wx:if="{{item.orderItemList.length == 1}}">
+                <view class="img">
+                  <image mode="aspectFit" src="{{item.orderItemList[0].productPic}}"></image>
+                </view>
+                <view class="name">
+                  <view class="font_color1 title">{{item.orderItemList[0].productName}}</view>
+                  <view class="num font_color7">数量{{item.orderItemList[0].productQuantity}}</view>
+                </view>
+                <!-- <view class="price font_color3">¥{{item.payAmount}}</view> -->
+              </view>
+              <view class="shopping-price" wx:if="{{item.orderItemList.length == 1}}">
+                  <view class="font_color2 shopping-price-des"><text class="shopping-price-des_num">共{{item.count}}件<text>应付：</text></text><text class="font_color1 shopping-price-des_price">¥{{item.payAmount}}</text></view>
+                </view>
+            </view>
+
+          </label>
+
+        </van-checkbox-group>
+      </view>
+    </view>
+  </view>
+  <view class="payTogether_total">
+    <view class="payTogether_total_content">
+      <text class="payTogether_total_num">共{{etTotalCount.count}}件，<text>合计：</text></text>
+      <text class="payTogether_total_price"><text>¥</text>{{etTotalCount.pay}}</text>
+    </view>
+  </view>
+  </view>
+  <view class="payTogether_btn">
+    <button bindtap="onClose" class="cancel">取消</button>
+    <button bindtap="submitBtn" class="pay">支付</button>
+  </view>
+  </van-popup>
+</view>

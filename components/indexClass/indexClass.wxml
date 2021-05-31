@@ -1,0 +1,18 @@
+<!--components/indexClass/indexClass.wxml-->
+<!-- 分类 -->
+<view>
+  <view class="index-class">
+    <scroll-view scroll-x="true" bindscroll="scroll" class="the-id">
+      <view class="direct-purchasing-content" >
+        <view wx:for="{{titleData}}" wx:key="index" bindtap="classBtn" data-url="{{item.url}}" style="margin-right:{{marginRight}}">
+          <view class="image" style="width:{{width}}; height: {{height}}"><image  mode="aspectFill" src="{{item.pic}}"></image></view>
+          <view class="title" style="width:{{width}};">{{item.name}}</view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view wx:if="{{isShow}}" style="height: 17px"></view>
+  <view wx:else class="index-progress" style="margin-top: {{marginTop}}px">
+    <view class="index-progress-change" style="left: {{ progressLeft }}; width:{{compWidth}}px"></view>
+  </view>
+  </view>

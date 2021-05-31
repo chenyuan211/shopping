@@ -1,0 +1,66 @@
+/* components/indexClass/indexClass.wxss *//* 分类 */
+pag {
+  width: 100%;
+  height: 100%;
+}
+.index-class {
+  position: relative;
+  top: 25px;
+  padding-left: 15px;
+  padding-bottom: 15px;
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+}
+.index-class .image {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+}
+scroll-view{
+  width: 100%;
+  white-space: nowrap;
+  background-color: white;
+ }
+.direct-purchasing-content {
+  display: inline-block;
+  background-color: white;
+}
+.direct-purchasing-content >view {
+  margin-right: 21px;
+  display: inline-block;
+  padding-bottom: 60rpx;
+  background-color: white;
+}
+.index-progress {
+  position: relative;
+  height: 4px;
+  width: 44px;
+  background: #E0E1E2;
+  border-radius: 50px;
+  margin: auto;
+  margin-top: 7px;
+}
+.index-progress-change {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 4px;
+  background: #02AAB0;
+  border-radius: 50px;
+}
+.index-class .image image{
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+.index-class .title {
+  color: rgba(51, 51, 51, 0.6);
+  font-size: 12px;
+  width: 60px;
+  text-align: center;
+  padding-top: 5px;
+
+
+}

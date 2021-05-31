@@ -1,0 +1,9 @@
+<!--components/noCouponBg.wxml-->
+<view class="noCouponBg">
+  <view class="clip-image">
+    <slot name="image"></slot>
+  </view>
+  <view class="font_color5 noCouponBg-hint">
+    <slot name="title"></slot>
+  </view>
+</view>

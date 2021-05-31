@@ -1,0 +1,168 @@
+/* components/payTogether/payTogether.wxss */
+.payTogether_title {
+  height: 44px;
+  line-height: 44px;
+  margin: 0 10px;
+  font-size: 15px;
+  text-align: center;
+  font-weight: 600;
+}
+.payTogether_content {
+  margin: 0 10px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+.payTogether_hit {
+  height: 28px;
+  background-color: rgba(230, 255, 251, 1);
+  font-size: 14px;
+  line-height: 28px;
+  text-indent: 10px;
+  color: rgba(2, 170, 176, 1);
+}
+.payTogether_list {
+  padding-top: 12px;
+}
+.payTogether .shopping-price {
+  display: flex;
+  padding-top: 5px;
+}
+.payTogether .shopping-price .shopping-price-des {
+  margin-left: auto;
+  font-size: 12px;
+  color: rgba(51, 51, 51, 0.6);
+}
+.payTogether .shopping-price-des_num {
+  color: rgba(51, 51, 51, 0.6);
+  padding-left: 3px;
+}
+.payTogether .shopping-price-des_num text {
+  padding-left: 6px;
+}
+.payTogether .shopping-price-des_price {
+  color: rgba(51, 51, 51, 1);
+}
+.payTogether_list .weui-cell {
+  display: flex;
+}
+.payTogether_list .weui-cell__hd {
+  position: relative;
+  top: 32px;
+  height: 20px !important;
+}
+.weui-cell_body {
+  width: 94%;
+  margin-left: auto;
+}
+.payTogether_list-single {
+  display: flex;
+  padding-bottom: 12px;
+}
+.payTogether_list-multiple {
+  padding-bottom: 12px;
+}
+.payTogether_list-single .img {
+  width: 60px;
+  height: 60px;
+}
+.payTogether_list-single .img image {
+  width: 100%;
+  height: 100%;
+}
+.payTogether_list-single .name {
+  font-size: 12px;
+  width: 75%;
+  overflow: hidden;
+  flex-shrink:0;
+  text-overflow:ellipsis;
+  padding-left: 10px;
+}
+.payTogether_list-single .title {
+ color: rgba(51, 51, 51, 1);
+ font-size: 14px;
+}
+.direct-purchasing-content {
+  width:100%;
+  display: flex;
+  display: -webkit-box;
+  flex-direction: column;
+}
+.payTogether_list-single .num {
+  font-size: 11px;
+  padding-top: 10px;
+  color: rgba(51, 51, 51, 1);
+}
+.payTogether_list-single .price {
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(221, 82, 30, 1);
+  margin-left: auto;
+}
+.payTogether_list-multiple .shopping-img {
+  width: 60px;
+  height: 60px;
+}
+.payTogether_list-multiple .shopping-img:not(:first-child) {
+  margin-left: 6px;
+}
+.payTogether_list-multiple .shopping-img image{
+  width: 100%;
+  height: 100%;
+}
+checkbox .wx-checkbox-input {
+	width: 34rpx;
+	height: 34rpx;
+	border-radius: 50%;
+}
+.van-checkbox__icon--checked,.van-checkbox__icon{
+  background: rgba(2, 170, 176, 1) !important;
+  border-color: rgba(2, 170, 176, 1) !important;
+}
+.payTogether_btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 64px;
+  display: flex;
+}
+.payTogether_btn button {
+  height: 44px;
+  width: 43%;
+  line-height: 44px;
+  font-size: 14px;
+}
+.payTogether_btn .cancel {
+  border: 1px solid rgba(2, 170, 176, 1);
+  color: rgba(2, 170, 176, 1);
+  background-color: white;
+}
+.payTogether_btn .pay {
+  color: white;
+  background-color: rgba(2, 170, 176, 1);
+  border: 1px solid rgba(2, 170, 176, 1);
+}
+.van-checkbox__icon--checked{
+  background: rgba(2, 170, 176, 1) !important;
+  border-color: rgba(2, 170, 176, 1) !important;
+}
+.payTogether_total {
+  padding-top: 10px;
+  display: flex;
+  padding-right: 10px;
+}
+.payTogether_total_content {
+  margin-left: auto;
+}
+.payTogether_total_num {
+  font-size: 12px;
+  color: rgba(51, 51, 51, 1);
+}
+.payTogether_total_price {
+  color: rgba(221, 82, 30, 1);
+  font-size: 18px;
+}
+.payTogether_total_price text {
+  font-size: 14px !important;
+}

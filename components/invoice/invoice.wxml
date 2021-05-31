@@ -1,0 +1,114 @@
+<!--components/invoice/invoice.wxml-->
+<view class="invoice">
+  <van-popup
+    show="{{ invoiceShow }}"
+    closeable
+    position="bottom"
+    custom-style="height: 75%"
+    bind:close="onClose"
+  >
+    <view class="invoice_title font_color1 border_color2">发 票</view>
+    <view class="invoice_type">
+      <view class="invoice_title font_color1">发票类型</view>
+      <view class="invoice_type_l">
+        <view wx:for="{{invoiceType}}" wx:key="index" class="{{billInfoeList.type === index ? 'invoiceActive' : ''}} invoice_type_list font_color1"
+          bindtap="invoiceTypeBtn" data-index="{{index}}"
+        >
+          <view>增值税</view>
+          <view>{{item}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view class="invoice_rise">
+      <view class="invoice_title font_color1">发票抬头</view>
+      <view class="invoice_type_l invoice_type_ll">
+        <view wx:if="{{billInfoeList.type == 1}}">
+          <view class="{{billInfoeList.type == 1 ? 'invoiceActive' : ''}} invoice_type_list font_color1" >
+            <view>{{invoiceRise[1]}}</view>
+          </view>
+        </view>
+        <view wx:else>
+          <view wx:for="{{invoiceRise}}" wx:key="index" class="{{billInfoeList.headerType === index ? 'invoiceActive' : ''}} invoice_type_list font_color1"  
+            bindtap="isinvoiceRiseBtn"
+            data-index="{{index}}"
+          >
+            <view>{{item}}</view>
+          </view>
+        </view>
+      </view>
+
+      <van-cell-group>
+        <van-field
+          value="{{ billInfoeList.header }}"
+          label=" 抬头名称"
+          placeholder="请输入抬头名称"
+          border
+          bind:change="invoiceNameChange"
+        />
+        <van-field wx:if="{{billInfoeList.headerType === 1 || billInfoeList.type === 1}}"
+          value="{{ billInfoeList.dutyParagraph }}"
+          label="单位税号"
+          placeholder="请输入纳税人识别号"
+          border
+          bind:change="ondutyChange"
+        />
+        <van-field wx:if="{{isinvoiceArrow}}"
+          value="{{ billInfoeList.registAddress }}"
+          label="注册地址"
+          placeholder="请输入企业注册地址"
+          border
+          bind:change="addressChange"
+        />
+        <van-field wx:if="{{isinvoiceArrow}}"
+          value="{{ billInfoeList.registPhone }}"
+          label="注册电话"
+          placeholder="请输入注册电话"
+          border
+          bind:change="onPhoneChange"
+        />
+        <van-field wx:if="{{isinvoiceArrow}}"
+          value="{{ billInfoeList.registBank }}"
+          label="开户银行"
+          placeholder="请输入开户银行"
+          border
+          bind:change="onBankChange"
+        />
+        <van-field wx:if="{{isinvoiceArrow}}"
+          value="{{ billInfoeList.registBankCard }}"
+          label="银行账户"
+          placeholder="请输入银行账户"
+          border
+          bind:change="onAccountChange"
+        />
+      </van-cell-group>
+      <view bindtap="invoiceArrow" class="isinvoice_more" wx:if="{{billInfoeList.type != 1 && billInfoeList.headerType == 1}}">
+        更多选填项
+        <van-icon wx:if="{{isinvoiceArrow}}" name="arrow-up" />
+        <van-icon wx:else name="arrow-down" />
+      </view>
+    </view>
+
+    <view class="invoice_rise">
+      <view class="invoice_title font_color1">收票人信息</view>
+
+      <van-cell-group>
+        <van-field
+          value="{{ billInfoeList.billReceiverEmail }}"
+          label="邮箱地址"
+          placeholder="请输入邮箱地址"
+          border
+          bind:change="onEmailChange"
+        />
+        <van-field
+          value="{{ billInfoeList.billReceiverPhone }}"
+          label="手机号码"
+          placeholder="请输入手机号码"
+          border
+          bind:change="userPhoneChange"
+        />
+      </van-cell-group>
+    </view>
+    <button bindtap="submitBtn" disabled="{{isDisabled}}" class="invoiceBtn">申请开票</button>
+  </van-popup>
+</view>
