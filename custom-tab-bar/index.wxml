@@ -1,0 +1,14 @@
+<!--miniprogram/custom-tab-bar/index.wxml-->
+<cover-view class="tab-bar">
+  <cover-view class="tab-bar-border"></cover-view>
+  <cover-view  wx:for="{{list}}" wx:key="index" class="tab-bar-item title" data-path="{{item.pagePath}}" data-index="{{index}}" bindtap="switchTab">
+    <!-- <cover-view class="num" wx:if='{{index === 1 && (countNum > 0 && countNum < 10)}}'> {{countNum}}</cover-view>
+    <cover-view class="num nums" wx:if='{{index === 1 && countNum >= 99}}'>{{countNum}}</cover-view>
+    <cover-view class="num numss" wx:if='{{index === 1 && countNum > 99}}'>99+</cover-view> -->
+    <cover-image src="{{selected === index ? item.selectedIconPath : item.iconPath}}"></cover-image>
+    <cover-view style="color: {{selected === index ? selectedColor : color}}">
+      <cover-view> {{item.text}}</cover-view>
+    
+    </cover-view>
+  </cover-view>
+</cover-view>
