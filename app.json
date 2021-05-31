@@ -1,0 +1,109 @@
+{
+  "pages": [
+    "pages/index/index",
+    "page/specialOffer/specialOffer",
+    "pages/productList/productList",
+    "pages/classify/classify",
+    "page/search/search",
+    "page/groupDetails/groupDetails",
+    "pages/personalCenter/personalCenter",
+    "pages/shoppingTrolley/shoppingTrolley",
+    "pages/submitOrder/submitOrder",
+    "pages/shippingAddress/shippingAddress",
+    "pages/addShippingAddress/addShippingAddress",
+    "pages/submitSuccess/submitSuccess",
+    "pages/feedback/feedback",
+    "pages/set/set",
+    "pages/resetPhone/resetPhone",
+    "pages/loginSelect/loginSelect",
+    "pages/membersLogin/membersLogin",
+    "pages/userAgreement/userAgreement",
+    "pages/authorizationPage/authorizationPage",
+    "pages/applyRefund/applyRefund",
+    "pages/applicationDrawback/applicationDrawback",
+    "pages/salesReturnList/salesReturnList",
+    "pages/salesReturnDetail/salesReturnDetail",
+    "pages/logisticsDetails/logisticsDetails",
+    "pages/groupBookingDetails/groupBookingDetails",
+    "pages/integral/integral",
+    "pages/coupon/coupon",
+    "pages/myShoppingTrolley/myShoppingTrolley",
+    "pages/shoppingAddress/shoppingAddress",
+    "pages/noNetwork/noNetwork",
+    "pages/orderDetail/orderDetail",
+    "pages/orderForm/orderForm",
+    "pages/payment/payment",
+    "page/shoppingDetails/shoppingDetails",
+    "page/browsingHistory/browsingHistory",
+    "pages/shoppingTrolleys/shoppingTrolleys"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "爱家甄品",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "usingComponents": {
+    "van-button": "@vant/weapp/button/index",
+    "van-radio": "@vant/weapp/radio/index",
+    "van-radio-group": "@vant/weapp/radio-group/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-tag": "@vant/weapp/tag/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-steps": "@vant/weapp/steps/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-submit-bar": "@vant/weapp/submit-bar/index",
+    "van-count-down": "@vant/weapp/count-down/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-switch": "@vant/weapp/switch/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-toast": "@vant/weapp/toast/index",
+    "van-uploader": "@vant/weapp/uploader/index",
+    "van-checkbox": "@vant/weapp/checkbox/index",
+    "van-checkbox-group": "@vant/weapp/checkbox-group/index",
+    "van-loading": "@vant/weapp/loading/index",
+    "van-dialog": "@vant/weapp/dialog/index"
+  },
+  "tabBar": {
+    "color": "#898989",
+    "selectedColor": "#02AAB0",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/assets/images/tab_icon_home_selected.png",
+        "selectedIconPath": "/assets/images/tab_icon_home_selected1.png"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "分类",
+        "iconPath": "/assets/images/tab_icon_home_classification.png",
+        "selectedIconPath": "/assets/images/tab_icon_home_classification_h.png"
+      },
+      {
+        "pagePath": "pages/shoppingTrolley/shoppingTrolley",
+        "text": "购物车",
+        "iconPath": "/assets/images/cart.png",
+        "selectedIconPath": "/assets/images/cart1.png"
+      },
+      {
+        "pagePath": "pages/personalCenter/personalCenter",
+        "text": "我的",
+        "iconPath": "/assets/images/tab_icon_me_normal.png",
+        "selectedIconPath": "/assets/images/tab_icon_me_normal1.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}
